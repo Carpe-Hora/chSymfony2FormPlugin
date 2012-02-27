@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file declare the modelActions class.
+ * This file declare the chFormFactory class.
  *
  * @package loopkey
  * @subpackage loopkey
@@ -20,6 +20,9 @@ use Symfony\Component\Validator\Mapping\ClassMetadataFactory;
 use Symfony\Component\Validator\Mapping\Loader\StaticMethodLoader;
 use Symfony\Component\Validator\ConstraintValidatorFactory;
 
+/**
+ * Return an instance of the chFormFactory
+ **/
 class chFormFactory
 {
 

@@ -43,6 +43,12 @@ class formTemplateEngine
     $this->currentModule = $currentModule;
   }
 
+  /**
+   * Initialize the php template engine
+   *
+   * @return PhpEngine the php template engine
+   *
+   **/
   public function initializeEngine()
   {
     $root = realpath(__DIR__ . '/../../../vendor/Symfony/Bundle/FrameworkBundle/Resources/views');
@@ -54,6 +60,12 @@ class formTemplateEngine
     $this->engine = new PhpEngine($templateNameParser, $loader);
   }
 
+  /**
+   * Return a form helper well formed included translator helper
+   *
+   * @return FormHelper $formHelper the formHelper
+   *
+   **/
   public function getFormHelper()
   {
     $this->initializeEngine();
@@ -63,10 +75,6 @@ class formTemplateEngine
 
     $translatorFactory = new translatorFactory($this->locale, $this->currentModule);
     $translator = $translatorFactory->getTranslator();
-
-    $this->engine->setHelpers(array(
-      new TranslatorHelper($translator),
-    ));
 
     $formHelper = new FormHelper($this->engine, $csrfProvider, array(
         'FrameworkBundle:Form',

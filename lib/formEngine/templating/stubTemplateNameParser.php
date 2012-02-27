@@ -1,7 +1,7 @@
 <?php
 
 /**
- * StubTemplateNameParser
+ * This file declare the StubTemplateNameParser class
  *
  * @package chFormEngine
  * @subpackage Templating

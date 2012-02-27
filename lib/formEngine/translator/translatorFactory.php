@@ -21,10 +21,8 @@ use Symfony\Component\Translation\MessageSelector;
  */
 class translatorFactory
 {
-  protected $allowedTypes = array(
-    'xml',
-    'yml',
-  );
+
+  protected $allowedTypes = array('xml', 'yml');
 
   protected $locale;
 
@@ -32,18 +30,38 @@ class translatorFactory
 
   protected $currentModule;
 
+  /**
+   * Default constructor
+   *
+   * @param String $locale        the current user locale
+   * @param String $currentModule the current user module name
+   *
+   **/
   public function __construct($locale, $currentModule)
   {
     $this->locale        = $locale;
     $this->currentModule = $currentModule;
   }
 
+  /**
+   * Return a default Translator
+   *
+   * @return Validator a well formated validator
+   *
+   **/
   public function getDefaultTranslator()
   {
     $translator = new Translator($this->locale, new MessageSelector());
+
     return $translator;
   }
 
+  /**
+   * Return a translator based on a XML resource file
+   *
+   * @return Translator a well formated translator
+   *
+   **/
   public function getXliffFileLoader()
   {
     $xliffFileLoader = new XliffFileLoader();
@@ -56,6 +74,12 @@ class translatorFactory
     return $translator;
   }
 
+  /**
+   * Return a translator based on a YAML resource file
+   *
+   * @return Translator a well formated translator
+   *
+   **/
   public function getYamlFileLoader()
   {
     $yamlFileLoader = new YamlFileLoader();
@@ -68,10 +92,17 @@ class translatorFactory
     return $translator;
   }
 
-
+  /**
+   * Return a well formated translator for a specific resource type
+   * The resource type is based on the resource file extension
+   *
+   * @return Translator the well formated translator
+   *
+   **/
   public function getTranslatorByResourceExtension()
   {
     $this->type =  pathinfo($this->resourcePath, PATHINFO_EXTENSION);
+
     if (in_array($this->type, $this->allowedTypes))
     {
       switch ($this->type)
@@ -84,13 +115,27 @@ class translatorFactory
           break;
       }
     }
+    else
+    {
+      throw new \Exception('Unknow translation resource type');
+    }
   }
 
+  /**
+   * Find in the translation resource in the project tree
+   * The search is based on the translation_resource_name given in the app.yml file
+   * In a first time it look in the i18n directory of the current module
+   * In a second time it look in the i18n directory of the current application
+   *
+   * @return mixed  the resource's path | null
+   *
+   **/
   public function findTranslationResource()
   {
     $resourceName = \sfConfig::get('app_symfony2_form_plugin_translation_resource_name');
     $i18nAppDir = \sfConfig::get('sf_app_i18n_dir');
     $appModuleDir= \sfConfig::get('sf_app_module_dir');
+
     foreach ($this->allowedTypes as $type)
     {
       //check if the translation ressource exist under the apps/<app>/modules/<module>/i18n/<locale> dir
@@ -104,9 +149,16 @@ class translatorFactory
         return $i18nAppDir.'/'.$this->locale.'/'.$resourceName.'.'.$type;
       }
     }
+
     return null;
   }
 
+  /**
+   * Return a translator by guessing the existing resource file
+   *
+   * @return Translator a weel formated translator
+   *
+   **/
   public function getTranslator()
   {
     $this->resourcePath = $this->findTranslationResource();
