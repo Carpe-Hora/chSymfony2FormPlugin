@@ -1,0 +1,54 @@
+[Symfony2-Form-Component]
+  git=https://github.com/symfony/Form.git
+  version=origin/master
+  target=Symfony/Component/Form
+
+[Symfony2-Validator-Component]
+  git=https://github.com/symfony/Validator.git
+  version=origin/master
+  target=Symfony/Component/Validator
+
+[Symfony2-Templating-Component]
+  git=https://github.com/symfony/Templating.git
+  version=origin/master
+  target=Symfony/Component/Templating
+
+[Symfony2-HttpFoundation-Component]
+  git=https://github.com/symfony/HttpFoundation.git
+  version=origin/master
+  target=Symfony/Component/HttpFoundation
+
+[Symfony2-EventDispatcher-Component]
+  git=https://github.com/symfony/EventDispatcher.git
+  version=origin/master
+  target=Symfony/Component/EventDispatcher
+
+[Symfony2-Translation-Component]
+  git=https://github.com/symfony/Translation.git
+  version=origin/master
+  target=Symfony/Component/Translation
+
+[Symfony2-Translation-Component]
+  git=https://github.com/symfony/Translation.git
+  version=origin/master
+  target=Symfony/Component/Translation
+
+[Symfony2-Config-Component]
+  git=https://github.com/symfony/Config.git
+  version=origin/master
+  target=Symfony/Component/Config
+
+[Symfony2-Yaml-Component]
+  git=https://github.com/symfony/Yaml.git
+  version=origin/master
+  target=Symfony/Component/Yaml
+
+[Symfony2-FrameworkBundle]
+  git=https://github.com/symfony/FrameworkBundle.git
+  version=origin/master
+  target=Symfony/Bundle/FrameworkBundle
+
+[Propel-Bridge]
+  git=https://github.com/Carpe-Hora/PropelBridge.git
+  version=origin/master
+  target=Symfony/Bridge/Propel1
