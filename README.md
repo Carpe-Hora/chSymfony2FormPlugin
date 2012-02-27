@@ -4,9 +4,9 @@ chSymfony2FormPlugin: use the Symfony2 Form Component in your symfony 1 applicat
 Goal
 ----
 
-[chCmsExposeRoutingPlugin](https://github.com/Carpe-Hora/chSymfony2FormPlugin) is a 
+[chSymfony2FormPlugin](https://github.com/Carpe-Hora/chSymfony2FormPlugin) is a 
 [symfony 1.4](http://www.symfony-project.org/) plugin used to integrate the Symfony2 
-form component into your symfony 1 applications
+Form component into your symfony 1.x applications
 
 How does it work ?
 ------------------
@@ -34,7 +34,7 @@ Then enable *chSymfony2Form* in your application:
       - chSymfony2Form
 ```
 
-Then install vendors with :
+Then install vendors with:
 
 ```bash
     php bin/vendors install
