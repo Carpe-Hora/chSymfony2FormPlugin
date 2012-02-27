@@ -23,14 +23,15 @@ public function setup()
 {
   $this->enablePlugins(array('chSymfony2FormPlugin'));
 }
+```
 
 Then enable *chSymfony2Form* in your application:
 
 ```yml
-# app/{your_app}/config/settins.yml
+# app/{your_app}/config/settings.yml
 
     enabled_modules:
-      - chCmsSymfony2Form
+      - chSymfony2Form
 ```
 
 Then install vendors with :
