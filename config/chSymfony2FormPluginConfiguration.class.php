@@ -25,6 +25,7 @@ class chSymfony2FormPluginConfiguration extends sfPluginConfiguration
 
   public function autoloadNamespace($className)
   {
+
     $className = ltrim($className, '\\');
     $fileName = '';
     $namespace = '';
@@ -36,9 +37,9 @@ class chSymfony2FormPluginConfiguration extends sfPluginConfiguration
     }
 
     foreach(array(
-      sfConfig::get('sf_plugins_dir'). '/' . DIRECTORY_SEPARATOR . $fileName . $className . '.php',
+      realpath(dirname(__FILE__).'/../../'. DIRECTORY_SEPARATOR . $fileName . $className . '.php'),
+      realpath(dirname(__FILE__).'/../vendor/'. DIRECTORY_SEPARATOR . $fileName . $className . '.php'),
       sfConfig::get('sf_lib_dir').'/'. DIRECTORY_SEPARATOR . $fileName . $className . '.php',
-      sfConfig::get('sf_plugins_dir').'/chSymfony2FormPlugin/vendor'. DIRECTORY_SEPARATOR . $fileName . $className . '.php',
       ) as $fileName)
     {
       if (file_exists($fileName))
