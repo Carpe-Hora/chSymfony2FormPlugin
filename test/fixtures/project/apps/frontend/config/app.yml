@@ -1,0 +1,8 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/11-App
+
+# default values
+all:
+  symfony2_form_plugin:
+    secret:                    xxxxxxxxxxxxxxxxxxxxxxxxxx
+    translation_resource_name: form
