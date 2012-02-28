@@ -36,4 +36,4 @@ all:
 
     enabled_modules:
       - default
-      - chSymfony2Form
+      - user

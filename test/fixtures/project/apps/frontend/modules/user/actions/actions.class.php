@@ -5,18 +5,18 @@
  * @company Carpe Hora SARL
  **/
 
-use symfony2Form\Type\TemplateType;
+use symfony2Form\Type\UserType;
 use chSymfony2FormPlugin\lib\formEngine\templating\formTemplateEngine;
 use chSymfony2FormPlugin\lib\formEngine\factory\chFormFactory;
 
-class templateSetActions extends sfActions
+class userActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
     //first we create a new form with a given form type
     $formFactory = chFormFactory::getFactoryInstance();
 
-    $form = $formFactory->create(new TemplateType(), new \LkTemplateSet());
+    $form = $formFactory->create(new UserType());
 
     //then we create the template engine
     $formTemplateEngine = new FormTemplateEngine($this->getUser()->getCulture(), $this->context->getModuleName());
@@ -36,7 +36,6 @@ class templateSetActions extends sfActions
       }
     }
 
-    //@todo isn't there another way to disable escaping strategy?
     sfConfig::set('sf_escaping_strategy', false);
     $this->formView = $form->createView();
   }
