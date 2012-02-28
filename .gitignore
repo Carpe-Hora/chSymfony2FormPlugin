@@ -1,1 +1,7 @@
 vendor/*
+test/fixtures/project/data/database.sqlite
+test/fixtures/project/data/sql/
+test/fixtures/project/lib/form/base/
+test/fixtures/project/lib/model/map/
+test/fixtures/project/lib/model/om/
+test/fixtures/project/cache/
