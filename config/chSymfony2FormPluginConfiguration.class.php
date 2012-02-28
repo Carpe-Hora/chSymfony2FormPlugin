@@ -10,8 +10,6 @@
  * @since 2012-02-24
  */
 
-//namespace chSymfony2FormPlugin\config;
-
 class chSymfony2FormPluginConfiguration extends sfPluginConfiguration
 {
   const VERSION = '1.0.0-DEV';
