@@ -62,6 +62,6 @@ $browser
         ->checkElement('form input[name="user[repeated][second]"]')
         ->checkElement('form input[name="user[hidden]"]')
         ->checkElement('form input[type="hidden"]')
-    ->end();
-    file_put_contents(__DIR__.'/test.php',$browser->getResponse()->getContent());
+    ->end()
+  ;
 
