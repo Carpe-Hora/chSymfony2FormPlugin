@@ -7,9 +7,13 @@ homepage:
   url:   /
   param: { module: user, action: index }
 
-validator_test:
-  url:   /validator
-  param: { module: user, action: validator }
+validation_test:
+  url:   /validation
+  param: { module: user, action: validation }
+
+csrf_test:
+  url:   /csrf
+  param: { module: user, action: csrf }
 
 # generic rules
 # please, remove them by adding more specific rules
