@@ -92,7 +92,7 @@ class ProjectConfiguration extends sfProjectConfiguration
     }
     else
     {
-      $data->loadData(sfConfig::get('sf_data_dir').'/'.$fixtures);
+      $data->loadData(sfConfig::get('sf_data_dir').'/fixtures/'.$fixtures);
     }
   }
 }
