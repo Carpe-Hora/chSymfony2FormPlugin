@@ -1,7 +1,5 @@
 <?php
 
-include(dirname(__FILE__).'/sf_test_lib.inc');
-
 if (!isset($_SERVER['SYMFONY']))
 {
   throw new RuntimeException('Could not find symfony core libraries.');
@@ -21,12 +19,11 @@ function chSymfony2FormPlugin_autoload_again($class)
 }
 spl_autoload_register('chSymfony2FormPlugin_autoload_again');
 
-if (file_exists($config = dirname(__FILE__).'/../../config/chSymfony2FormPluginConfiguration.class.php'))
+if (!isset($app))
 {
-  require_once $config;
-  $plugin_configuration = new chSymfony2FormPluginConfiguration($configuration, dirname(__FILE__).'/../..', 'chSymfony2FormPlugin');
+  $app = 'frontend';
 }
-else
-{
-  $plugin_configuration = new sfPluginConfigurationGeneric($configuration, dirname(__FILE__).'/../..', 'chSymfony2FormPlugin');
-}
+
+require_once dirname(__FILE__).'/../fixtures/project/config/ProjectConfiguration.class.php';
+$configuration = ProjectConfiguration::getApplicationConfiguration($app, 'test', isset($debug) ? $debug : true, $rootdir);
+sfContext::createInstance($configuration);

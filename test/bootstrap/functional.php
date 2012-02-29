@@ -1,7 +1,5 @@
 <?php
 
-include(dirname(__FILE__).'/sf_test_lib.inc');
-
 if (!isset($_SERVER['SYMFONY']))
 {
   $_SERVER['SYMFONY'] = '../../lib/vendor/symfony/lib/';
@@ -35,5 +33,5 @@ sfContext::createInstance($configuration);
 $configuration->initializePropel($app);
 if (isset($fixtures))
 {
-  $configuration->loadFixtures(dirname(realpath($fixtures)));
+  $configuration->loadFixtures($fixtures);
 }
