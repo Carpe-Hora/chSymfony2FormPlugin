@@ -1,6 +1,7 @@
 <?php
 
-
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Validator\Constraints as Constraints;
 
 /**
  * Skeleton subclass for representing a row from the 'book' table.
@@ -17,6 +18,14 @@
  *
  * @package    propel.generator.lib.model
  */
-class Book extends BaseBook {
+class Book extends BaseBook 
+{
+  // validation
+  public static function loadValidatorMetadata(classMetadata $metadata)
+  {
+    $metadata->addPropertyConstraint('name', new Constraints\NotBlank());
+    $metadata->addPropertyConstraint('name', new Constraints\MinLength(10));
+    $metadata->addPropertyConstraint('name', new Constraints\MaxLength(30));
+  }
 
 } // Book
